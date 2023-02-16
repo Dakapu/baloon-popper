@@ -5,18 +5,7 @@ using UnityEngine;
 
 public class balloonScript : MonoBehaviour
 {
-    private int life = 5;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public int life = 5;
 
     private void OnMouseDown()
     {
