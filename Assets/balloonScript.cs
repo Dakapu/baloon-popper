@@ -4,11 +4,12 @@ using Unity.VisualScripting;
 using UnityEditor.VersionControl;
 using UnityEngine;
 
-public class balloonScript : MonoBehaviour
+public class BalloonScript : MonoBehaviour
 {
     public int life = 5;
-    public int score = 0;
+    public int score = 1;
     public float scaleToIncrease = 0.5f;
+    public ScoreManager scoreManager;
 
     void Start()
     {
@@ -28,17 +29,16 @@ public class balloonScript : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (life > 0)
-        {
-            transform.localScale += Vector3.one * scaleToIncrease;
-            life--;
+ 
+        transform.localScale += Vector3.one * scaleToIncrease;
+        life--;        
 
+        if (life==0)
+        {
+            scoreManager.IncreaseScore(score);
+            Destroy(gameObject);
         }
 
-        else
-            Destroy(gameObject);
-
-        Debug.Log("life: " + life);
     }
 
 
