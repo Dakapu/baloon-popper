@@ -11,6 +11,7 @@ public class ScoreManager : MonoBehaviour
     private void Start()
     {
         UpdateScoreText();
+        
     }
 
     public void IncreaseScore(int amount)
