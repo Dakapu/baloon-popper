@@ -16,4 +16,16 @@ public class Bowlingball : MonoBehaviour
 
     }
 
+    public void MoveLeft()
+    {
+        if(transform.position.x < leftBorder)
+            transform.position += new Vector3(moveIncrement,0, 0);
+    }
+
+    public void MoveRight()
+    {
+        if (transform.position.x > rightBorder)
+            transform.position += new Vector3(-moveIncrement, 0, 0);
+    }
+
 }
