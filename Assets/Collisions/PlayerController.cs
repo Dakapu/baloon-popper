@@ -1,18 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public float moveForce;
+    public Rigidbody rig;
 
-    // Update is called once per frame
-    void Update()
+    private void FixedUpdate()
     {
-        
+        float xInput = Input.GetAxis("Horizontal");
+
+        rig.AddForce(Vector3.right * xInput * moveForce);
     }
 }
