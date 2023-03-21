@@ -10,14 +10,9 @@ public class Bowlingball : MonoBehaviour
     public float moveIncrement;
     public Rigidbody rig;
 
-    private void Start()
+    public void Bowl()
     {
-        Bowl();
-    }
-
-    void Bowl()
-    {
-        rig.AddForce(transform.forward * forwardForce);
+        rig.AddForce(transform.forward * forwardForce, ForceMode.Impulse);
 
     }
 
