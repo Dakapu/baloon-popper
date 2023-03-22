@@ -4,11 +4,24 @@ using UnityEngine;
 
 public class tree : MonoBehaviour
 {
-    public MeshRenderer mr;
-    public Color hitColor;
-    // Start is called before the first frame update
+    private Component[] treeComponents;
+    public Material leafHitMaterial;
+    public Material treeHitMaterial;
+    private void Start()
+    {
+        treeComponents = GetComponentsInChildren<MeshRenderer>();
+    }
     public void OnCollisionEnter(Collision collision)
     {
-        mr.material.color = hitColor;
+        // mr.material.color = hitColor;
+        foreach (Component comp in treeComponents)
+        {
+            if(comp.name == "Leaf")
+                comp.GetComponent<MeshRenderer>().material = leafHitMaterial;
+            else
+                comp.GetComponent<MeshRenderer>().material = treeHitMaterial;
+
+        }
+
     }
 }
